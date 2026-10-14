@@ -5,3 +5,9 @@ Gemfile.lock
 .DS_Store
 .jekyll-cache
 git-update.sh
+tmp/
+vendor/
+.bundle/
+# Original source materials stay local; publish only the curated assets.
+/Xiaoxiao_TU.pdf
+/photo.jpg

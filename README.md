@@ -1,187 +1,64 @@
-# The Minimal Light Theme
+# Xiaoxiao Tu — personal homepage
 
-[![LICENSE](https://img.shields.io/github/license/yaoyao-liu/minimal-light?style=flat-square&logo=creative-commons&color=EF9421)](https://github.com/yaoyao-liu/minimal-light/blob/main/LICENSE)
+An English academic homepage adapted from [Minimal Light](https://github.com/yaoyao-liu/minimal-light), built with Jekyll. The original CC0 license is preserved in `LICENSE`.
 
-\[[Demo the theme](https://minimal-light-theme.yliu.me/)\]  \[[简体中文](https://github.com/yaoyao-liu/minimal-light/blob/master/README_zh_Hans.md) | [繁體中文](https://github.com/yaoyao-liu/minimal-light/blob/master/README_zh_Hant.md) | [Deutsche](https://github.com/yaoyao-liu/minimal-light/blob/master/README_de.md)\]
- 
-*This is the source code of my homepage. I build this website based on [minimal](https://github.com/orderedlist/minimal).*
-<br>
-*Feel free to use and share the source code anywhere you like.*
+Configured destination: **https://tuxiaoxia0.github.io/**. This is a local preview; no push or deployment has been performed.
 
-An improved vision from [@Xiao-Chenguang](https://github.com/Xiao-Chenguang): [[link](https://github.com/Xiao-Chenguang/minimal-light)]
+## Preview on this computer
 
-**The latest version of my homepage is available here: <br><https://github.com/yaoyao-liu/yaoyaoliu-homepage>**
+From PowerShell in this repository:
 
-## Features
-
-- Simple and elegant personal homepage theme
-- Jekyll theme, automatically deployed by GitHub Pages
-- Basic search engine optimization
-- Mobile friendly
-- Supporting Markdown 
-- Supporting dark mode
-
-## Project Architecture
-
-```
-.
-├── _data                    
-|   └── publications.yml                      # the YAML file for publications
-├── _includes                    
-|   ├── publications.md                       # the Markdown file for publications
-|   └── services.md                           # the Markdown file for services
-├── _layouts                  
-|   └── homepage.html                         #  the html template for the homepage 
-├── _sass
-|   ├── minimal-light.scss                    #  this file will be compiled into a CSS file to control the style of the page              
-|   └── minimal-light-no-dark-mode.scss       #  this file is similar to minimal-light.scss with the dark mode disabled
-├── assets                                    #  some files
-├── html_source_file                          #  compiled HTML files
-├── .gitignore                                #  this file specifies intentionally untracked files that Git should ignore
-├── CNAME                                     #  the custom domain, will be used by GitHub page sevice
-├── Gemfile                                   #  a RubyGems related file
-├── LICENSE                                   #  the license file
-├── README.md                                 #  the readme file (English)
-├── README_de.md                              #  the readme file (German)
-├── README_zh_Hans.md                         #  the readme file (Simplified Chinese)
-├── README_zh_Hant.md                         #  the readme file (Traditional Chinese)
-├── _config.yml                               #  the Jekyll configuration file, including some options of the page  
-└── index.md                                  #  the content of the index page, using Markdown
+```powershell
+.\scripts\preview.ps1
 ```
 
-## Getting Started
+Open **http://127.0.0.1:4000/**. Keep the terminal open; press Ctrl+C to stop. The script builds the site first, then serves that build. After editing, restart it to rebuild and refresh the browser. Use `-Port 4001` if port 4000 is occupied, or `-BuildOnly` to build without starting a server.
 
-This template can be used in the following two ways: 
-- **Using with the GitHub Pages Service.** GitHub will provide you with a server to generate and host web pages.
-- **Using locally with Jekyll.** You may install Jekyll on your own computer and generate static web pages (i.e., HTML files) with this template. After that, you may upload the HTML files to your server.
+A portable Ruby 3.3 environment and Jekyll dependencies are installed under the ignored `tmp/` directory on this computer. They are local tools, excluded from both Git and the site output.
 
-The detailed instructions are available below.
+## Preview with a standard Ruby installation
 
+Install Ruby and Bundler, then run:
 
-### Using with the GitHub Pages Service
-
-There are two ways to use this template on GitHub:
-
-#### Fork this repository
-- Fork this repository (or [use this repository as a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)) and change the name to `your-username.github.io`.
-
-- Enable the GitHub pages for that repository following the steps [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
-
-#### Using this repository as a remote theme
-To use this theme, add the following to your repository's `_config.yml`:
-
-```yaml
-remote_theme: yaoyao-liu/minimal-light
-```
-
-Please note that adding the above line will directly apply all the default settings in this repository to yours.
-
-If you hope to edit any files (e.g., `index.md`), you still need to copy them to your repository.
-
-### Using Locally with Jekyll
-
-First, install [Ruby](https://www.ruby-lang.org/en/) and [Jekyll](https://jekyllrb.com/). The install instructions can be found here: <https://jekyllrb.com/docs/installation/#guides>
-
-Then, clone this repository:
-
-```bash
-git clone https://github.com/yaoyao-liu/minimal-light.git
-cd minimal-light
-```
-Install and run:
-
-```bash
+```sh
 bundle install
-bundle add webrick
-bundle exec jekyll server
+bundle exec jekyll serve --host 127.0.0.1
 ```
-View the live page using `localhost`:
-<http://localhost:4000>. You can get the HTML files in `_site` folder.
 
-### Using the HTML version
+For a production build, run `bundle exec jekyll build`. Jekyll writes to `_site/`. The Gemfile uses Jekyll 3.10; the local layout and Sass are self-contained. No remote theme, analytics, CDN scripts, or external font requests are required.
 
-The compiled HTML files are available in the `html_source_file` folder. If you don't like Jekyll, you may directly edit and use the HTML version.
+## Content and assets
 
-## Customizing
+| File | Purpose |
+| --- | --- |
+| `index.md` | About, selected publication, competitive programming awards, and teaching |
+| `_data/publications.yml` | Selected publication title, authors, venue, and links |
+| `_config.yml` | Name, public email, profile links, and GitHub Pages URL |
+| `_layouts/homepage.html` | Page structure, navigation, and metadata |
+| `_sass/minimal-light.scss` | Desktop, tablet, mobile, and print styles |
+| `assets/img/xiaoxiao-tu.jpg` | Profile photo, cropped visually using CSS |
+| `assets/files/xiaoxiao-tu-cv.pdf` | Public two-page CV without the telephone number |
 
-### Configuration variables
+The CV email `xiaoxiaotu@link.cuhk.edu.cn` is used throughout, per the owner's clarification. The original `Xiaoxiao_TU.pdf` and `photo.jpg` remain untouched locally and are explicitly ignored and excluded from the generated site. Only the public CV is linked. Its contact row retains the email and GitHub; all education, research, awards, and teaching content is preserved.
 
-The Minimal Light theme will respect the following variables, if set in your site's `_config.yml`:
+## Content provenance and optional additions
 
-  ```yaml
-# Basic Information 
-title: Your Name
-position: Ph.D. Student
-affiliation: Your Affiliation
-email: yourname (at) example.edu
+- Biographical content, awards, and teaching experience come from the supplied CV, with the owner's later corrections reflected in the homepage: third-year undergraduate; current LLM post-training research at CUHK-Shenzhen; summer 2026 research at NUS on agent evaluation. The downloadable CV remains as supplied apart from its public contact header.
+- The numerical-approximations project is labeled **ICML 2026 AI4Math Workshop**, not the main conference. Its [ICML page](https://icml.cc/virtual/2026/82609) was checked for the title, author name, workshop status, and OpenReview destination.
+- The supplied [PDF link](https://openreview.net/pdf?id=5dialBJcmD) is included. OpenReview currently presents an automated-browser verification screen, so direct PDF loading could not be verified in this environment.
+- The owner-provided LinkedIn profile is linked alongside GitHub. Google Scholar and other social accounts were not supplied and are omitted.
 
-# Search Engine Optimization (SEO)
-# The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: minimal light
-description: The Minimal Light is a simple and elegant jekyll theme for academic personal homepage.
-canonical: https://minimal-light-theme.yliu.me/
+## GitHub Pages configuration
 
-# Links 
-# If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/
-cv_link: assets/files/curriculum_vitae.pdf
-github_link: https://github.com/
-linkedin: https://www.linkedin.com/
-twitter: https://twitter.com/
+`url` is `https://tuxiaoxia0.github.io` and `baseurl` is empty. Both template CNAME files, the original analytics identifier, sample publications, sample CV, duplicate static demo, and unused example assets have been removed. `LICENSE` is unchanged; the small template attribution remains.
 
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/avatar.png
-favicon: ./assets/img/favicon.png
-favicon_dark: ./assets/img/favicon-dark.png
+Publish only after the owner has reviewed the preview. No deployment workflow or remote action is needed for local review.
 
-# Footnote
-# You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
-enable_footnote: true
+## Preview verification
 
-# Auto Dark Mode
-# You may use the option to disable the automatic dark theme
-auto_dark_mode: true
-
-# Font
-# You can use this option to choose between Serif or Sans Serif fonts.
-font: "Serif" # or "Sans Serif"
-
-# Google Analytics ID
-# Please remove this if you don't use Google Analytics
-google_analytics: UA-111540567-4
-  ```
-### Edit `index.md`
-
-Create `index.md` and add your personal information. It supports **Markdown** and **HTML** syntax.
-
-### Edit included files
-
-There are two markdown files included in `index.md`. They are `_includes/publications.md` and `_includes/service.md`, respectively. These two files also support **Markdown** and **HTML** syntax. If you don't hope to include these two files, you may remove the following lines in `index.md`:
-https://github.com/yaoyao-liu/minimal-light/blob/b38070cd0b6bce45d8a885f3828549af8f82b7cb/index.md?plain=1#L21-L23
-
-If you hope to edit the publication list without changing the format, you may edit `_data/publications.yml`:
-https://github.com/yaoyao-liu/minimal-light/blob/77b1b3b31d4561091bcd739f37a2e1880e8b5ca5/_data/publications.yml#L3-L11
-
-
-### Stylesheet
-
-If you'd like to add your own custom styles, you may edit `_sass/minimal-light.scss`.
-
-### Layouts
-
-If you'd like to change the theme's HTML layout, you may edit `_layout/homepage.html`.
-
-## License
-
-This work is licensed under a [Creative Commons Zero v1.0 Universal](https://github.com/yaoyao-liu/minimal-light/blob/master/LICENSE) License.
-
-## Acknowledgements
-
-Our project uses the source code from the following repositories:
-
-* [pages-themes/minimal](https://github.com/pages-themes/minimal)
-
-* [orderedlist/minimal](https://github.com/orderedlist/minimal)
-
-* [al-folio](https://github.com/alshedivat/al-folio)
+- Jekyll 3.10 production build completed successfully on Windows with Ruby 3.3.10.
+- Browser layouts checked on desktop and mobile; no horizontal overflow or missing images. Section navigation lands on its targets correctly, and no browser warnings or errors were reported.
+- The homepage, CSS, image, favicon, and CV return HTTP 200. All local links and anchors resolve, and the canonical URL points to the configured GitHub Pages site.
+- Generated output contains exactly five public files; original source materials, local tools, documentation, and template demos are absent.
+- The public CV was rendered and visually checked on both pages. Outside the contact row, the rendered pages match the original pixel for pixel; all body text is unchanged.
+- The ICML and GitHub profile pages were verified in the browser. The OpenReview PDF remains subject to its browser verification screen.
